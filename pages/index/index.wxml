@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<!-- <import src="../modal/modal.wxml" /> -->
+<view class="container">
+  <view class="userinfo">
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"
+        background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}的私人账本</text>
+    </view>
+  </view>
+    <!-- 模态框 -->
+  <view>
+    <modal wx:if="{{showModal1}}" bindcancel="modalCancel1" bindconfirm='modalConfirm1'>
+      <view class="titlecrep">新建一个账目</view>
+      <input name="title" bindblur="setTitle" placeholder="起一个响亮的名字吧" value="{{temptitle}}"/>
+    </modal>
+    <modal wx:if="{{showModal2}}" bindcancel="modalCancel2" bindconfirm='modalConfirm2'>
+      <view class="titlecrep">账目重命名</view>
+      <input name='title' bindblur="setTitle" placeholder="起一个响亮的名字吧" value="{{temptitle}}"/>
+    </modal>
+  </view>
+
+  <!-- 页面主体 -->
+  <view class="page-body">
+    <view class="index-bd">
+      <view class="touch-item" data-index="{{index}}" wx:for="{{list}}" wx:key="id">
+        <view class="content">
+          <navigator class="navigator">
+            <view class="navigator-text">{{ item.title }}</view>
+            <view class="navigator-arrow"></view>
+          </navigator>
+        </view>
+        <!-- 这里还需要添加重命名和删除 -->
+        <view class="rename" catchtap="showModalre2" data-index="{{index}}">重命名</view>
+        <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+    <!-- 这里是添加新建项目和设置的图标 -->
+    <view bindtap="showModalnew1">
+      <image class="float-action1" src="../common/icon/add.png"></image>
+    </view>
+    <view>
+      <navigator url="../settings/settings" hover-class="navigator-hover">
+        <image class="float-action2" src="../common/icon/setting.png"></image>
+      </navigator>
+    </view>
+
+    <!-- <view>
+      <text>
+        {{templist}},
+        {{rawlist}},
+        {{temltitle}},
+        {{cashflow}}
+      </text>
+    </view> -->
+
+
+  </view>
+</view>

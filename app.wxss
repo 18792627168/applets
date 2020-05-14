@@ -1,0 +1,31 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+} 
+
+
+/* 下方定位的图标 */
+.float-action1, .float-action2{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  box-shadow: 2px 2px 10px #aaaaaa;
+  z-index: 100;
+  opacity: 0.6;
+  right: 23%;
+  border-radius: 50%;
+}
+.float-action1{
+  bottom: 30%;
+}
+.float-action2{
+  bottom: 18%;
+}
+
+

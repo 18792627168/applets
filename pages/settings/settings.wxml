@@ -1,0 +1,32 @@
+<!--logs.wxml-->
+<view class="container">
+  <view class="page-head">
+    <view class="page-head-desc">设置账目分类</view>
+    <view class="page-head-line"></view>
+  </view>
+
+  <!-- 分类内容 -->
+  <view>
+    <modal wx:if="{{showModal1}}" bindcancel="modalCancel1" bindconfirm='modalConfirm1'>
+      <view class="titlecrep">新建类型</view>
+      <input name="title" bindblur="setTitle" placeholder="新建一个类型" value="{{temptitle}}"/>
+    </modal>
+  </view>
+
+  <view class="page-body">
+    <view class="index-bd">
+      <view class="touch-item {{item.isTouchMove ?'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{list}}" wx:key="id">
+        <view class="content">
+          <view class="navigator-text">{{item.name}}</view>
+        </view>
+        <!-- <view class="del" catchtap="del" data-index="{{index}}">删除</view> -->
+      </view>
+    </view>
+    <view bindtap="showModal">
+      <image class="float-action1" src="../common/icon/add.png"></image>
+    </view>
+    <view bindtap="clearAll">
+        <image class="float-action2" src="../common/icon/delete.png"></image>
+    </view>
+  </view>
+</view>
